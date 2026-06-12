@@ -1,0 +1,58 @@
+{
+  "name": "unsplash-pro",
+  "displayName": "Unsplash Pro",
+  "description": "High-res Unsplash image gallery with dynamic resizing right inside VS Code.",
+  "version": "1.0.0",
+  "publisher": "Thnoxs",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "icon": "logo.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xfcove/unsplash-pro"
+  },
+  "license": "MIT",
+  "activationEvents": [
+    "onView:unsplash.sidebarView"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "unsplash-explorer",
+          "title": "Unsplash Pro",
+          "icon": "resources/sidebar-icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "unsplash-explorer": [
+        {
+          "type": "webview",
+          "id": "unsplash.sidebarView",
+          "name": "Image Gallery"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.80.0",
+    "@types/node": "18.x",
+    "@typescript-eslint/eslint-plugin": "^5.59.1",
+    "@typescript-eslint/parser": "^5.59.1",
+    "eslint": "^8.39.0",
+    "typescript": "^5.0.4"
+  }
+}
